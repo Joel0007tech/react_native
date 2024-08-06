@@ -7,7 +7,7 @@ export default function App(){
         <View className="flex-1 items-center justify-center bg-white">
             <Text className="text-3xl font-black"> Aora web app!</Text>
             <StatusBar style="auto" />
-            <Link href="/Profile" style={{color: 'blue'}}> Go to profile page </Link>
+            <Link href="/(tabs)home" style={{color: 'blue'}}> Go to Home</Link>
         </View>
     );
 }
