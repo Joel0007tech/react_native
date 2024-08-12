@@ -37,7 +37,7 @@ try {
     if(!newAccount) throw Error;
     const avatarUrl = avatars.getInitials(username )
     
-    await SignIn(email, password)
+    SignIn(email, password)
 
     const newUser = await databases.createDocument(
      config.databaseId,
@@ -61,7 +61,7 @@ try {
 
 export async function signIn(email, password){
     try {
-       const session = await account.createEmailSession(email, password)
+       const session = await account.createEmailPasswordSession(email, password)
 
        return session;
     } catch (error) {

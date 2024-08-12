@@ -1,4 +1,4 @@
-import { View, Text, Image, Alert , TextInput} from 'react-native'
+import { View, Text, Image, Alert,} from 'react-native'
 import React, { useState } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import {ScrollView } from 'react-native'
@@ -52,7 +52,7 @@ const SignUp = () => {
       <FormField 
       title="Username"
       value={form.username}
-      handlleChangeText={(e) => setForm({...form, 
+      handleChangeText={(e) => setForm({...form, 
         username:e })}
         otherStyles="mt-7"
       />
@@ -60,7 +60,7 @@ const SignUp = () => {
       <FormField
       title="Email"
       value={form.email}
-      handlleChangeText={(e) => setForm({...form, 
+      handleChangeText={(e) => setForm({...form, 
         email:e })}
         otherStyles="mt-7"
         
@@ -69,7 +69,7 @@ const SignUp = () => {
       <FormField
       title="Password"
       value={form.password}
-      handlleChangeText={(e) => setForm({...form, 
+      handleChangeText={(e) => setForm({...form, 
         password:e })}
         otherStyles="mt-7"
       />
