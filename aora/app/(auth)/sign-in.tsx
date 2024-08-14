@@ -9,7 +9,7 @@ import {images} from "../../constants";
 import CustomButton  from "../../components/CustomButton"
 import { signIn } from '@/lib/appwrite'
 
-const SignIn = () => {
+const SignIn = () => { 
 
   const [form,setForm] = useState({
     email:'',
@@ -29,7 +29,11 @@ const SignIn = () => {
      await signIn(form.email, form.password)
     router.replace('./home' )
    } catch (error) {
-     Alert.alert('Error', error.message)
+    let errorMessage = "Your details are not correct";
+    if (error instanceof Error) {
+      errorMessage = error.message
+    }
+     Alert.alert('Error', errorMessage)
     } finally{
      setIsSubmitting(false)
     }
@@ -47,27 +51,26 @@ const SignIn = () => {
      <Text className='text-2xl text-white text-semibold mt-10 font-psemibold'>
       Log in to Aora</Text>
       <FormField  
-      title="Email"
-      value={form.email}
-      handleChangeText={(e) => setForm({ ...form, email:e })}
-        otherStyles="mt-7"
-        keyboardType="email-address"
-      />
+            title="Email"
+            value={form.email}
+            handleChangeText={(e: any) => setForm({ ...form, email: e })}
+            otherStyles="mt-7"
+            keyboardType="email-address" placeholder={undefined}      />
 
       <FormField  
-      title="Password"
-      value={form.password}
-      handleChangeText={(e) => setForm({ ...form, 
-        password:e })}
-        otherStyles="mt-7"
-      />
+            title="Password"
+            value={form.password}
+            handleChangeText={(e: any) => setForm({
+              ...form,
+              password: e
+            })}
+            otherStyles="mt-7" placeholder={undefined}      />
 
       <CustomButton 
-      title="Sign In"
-      handlePress={submit}
-      containerStyles="mt-7"
-      isLoading={isSubmitting}
-      />
+            title="Sign In"
+            handlePress={submit}
+            containerStyles="mt-7"
+            isLoading={isSubmitting} textStyles={undefined}      />
 
       <View className='justify-center pt-5 flex-row gap-2'>
         <Text className='text-lg text-gray-100 font-pregular '>

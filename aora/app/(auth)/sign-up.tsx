@@ -20,6 +20,8 @@ const SignUp = () => {
   const [isSubmitting, setIsSubmitting] = useState(false)
 
   const submit = async ()  => {
+
+    
    if (!form.username || !form.email || !form.password) 
     {
     Alert.alert('Error', 'Please fill in all fields')
@@ -31,7 +33,11 @@ const SignUp = () => {
     const result = await createUser(form.email, form.password, form.username)
    router.replace('./sign-in' )
   } catch (error) {
-    Alert.alert('Error', error.message)
+    let errorMessage = "You don't have an account yet";
+    if (error instanceof Error) {
+      errorMessage = error.message
+    }
+    Alert.alert('Error', errorMessage)
    } finally{
     setIsSubmitting(false)
    }
@@ -50,36 +56,38 @@ const SignUp = () => {
       Sign Up to Aora</Text>
 
       <FormField 
-      title="Username"
-      value={form.username}
-      handleChangeText={(e) => setForm({...form, 
-        username:e })}
-        otherStyles="mt-7"
+            title="Username"
+            value={form.username}
+            handleChangeText={(e: any) => setForm({
+              ...form,
+              username: e
+            })}
+            otherStyles="mt-7" placeholder={undefined}      />
+
+      <FormField
+            title="Email"
+            value={form.email}
+            handleChangeText={(e: any) => setForm({
+              ...form,
+              email: e
+            })}
+            otherStyles="mt-7" placeholder={undefined}        
       />
 
       <FormField
-      title="Email"
-      value={form.email}
-      handleChangeText={(e) => setForm({...form, 
-        email:e })}
-        otherStyles="mt-7"
-        
-      />
-
-      <FormField
-      title="Password"
-      value={form.password}
-      handleChangeText={(e) => setForm({...form, 
-        password:e })}
-        otherStyles="mt-7"
-      />
+            title="Password"
+            value={form.password}
+            handleChangeText={(e: any) => setForm({
+              ...form,
+              password: e
+            })}
+            otherStyles="mt-7" placeholder={undefined}      />
 
       <CustomButton 
-      title="Sign Up"
-      handlePress={submit}
-      containerStyles="mt-7"
-      isLoading={isSubmitting}
-      />
+            title="Sign Up"
+            handlePress={submit}
+            containerStyles="mt-7"
+            isLoading={isSubmitting} textStyles={undefined}      />
 
       <View className='justify-center pt-5 flex-row gap-2'>
         <Text className='text-lg text-gray-100 font-pregular '>
