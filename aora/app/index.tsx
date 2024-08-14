@@ -38,10 +38,9 @@ export default function App(){
             embark on a journey of limitless exploration with aora
           </Text>
           <CustomButton 
-          title="Continue with Email"
-          handlePress={() => router.push('/sign-in')}
-          containerStyles="w-full mt-7"
-          />
+              title="Continue with Email"
+              handlePress={() => router.push('/sign-in')}
+              containerStyles="w-full mt-7" textStyles={undefined} isLoading={undefined}          />
            </View>
          </ScrollView>
          <StatusBar backgroundColor='#161622'
