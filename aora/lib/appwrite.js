@@ -1,4 +1,4 @@
-import { Client, Account, ID, Avatars, Databases} from 'react-native-appwrite';
+import { Client, Account, ID, Avatars, Databases, Query} from 'react-native-appwrite';
 import SignIn from '../app/(auth)/sign-in';
 
 export const config = {
@@ -59,7 +59,7 @@ try {
 }
 }
 
-export async function signIn(email, password){
+export const signIn = async(email, password) => {
     try {
        const session = await account.createEmailPasswordSession(email, password)
 
@@ -75,5 +75,28 @@ export async function signOut() {
       return session;
     } catch (error) {
       throw new Error(error);
+    }
+  }
+
+  export const getCurrentUser = async () =>{
+    try {
+        const currentAccount = await account.get();
+
+        if (!currentAccount) throw Error;
+
+        const currentUser = await databases.listDocuments(
+            config.databaseId,
+            config.userCollectionId
+            [Query.equal('accountId', currentAccount.$id)]
+        )
+         
+
+        if (!currentUser) throw Error;
+
+        return currentUser.documents[0];
+
+    } catch (error) {
+        console.log(error);
+        
     }
   }
