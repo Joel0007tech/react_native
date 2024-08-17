@@ -13,5 +13,5 @@
     "**/*.tsx",
     ".expo/types/**/*.ts",
     "expo-env.d.ts"
-, "app/search/[query].jsx", "app/index.tsx", "app/(tabs)/_layout.jsx", "constants/icons.js", "app/(auth)/sign-up.tsx", "app/(auth)/_layout.tsx", "app/(auth)/sign-in.tsx", "components/FormField.jsx", "app/context/GlobalProider.js"  ]
+, "app/search/[query].jsx", "app/index.jsx", "app/(tabs)/_layout.jsx", "constants/icons.js", "app/(auth)/sign-up.tsx", "app/(auth)/_layout.tsx", "app/(auth)/sign-in.tsx", "components/FormField.jsx", "app/context/GlobalProider.js", "components/Loader.jsx"  ]
 }

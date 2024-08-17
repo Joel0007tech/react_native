@@ -4,9 +4,9 @@ import { View, Text, Image, ScrollView } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import { images } from "../constants";
-import { CustomButton } from "../components/CustomButton"
-import {Loader} from "../components/Loader"
 import { useGlobalContext } from "./context/GlobalProider";
+import Loader from "../components/Loader";
+import CustomButton from ".././components/CustomButton"
 
 const Welcome = () => {
   const { loading, isLogged } = useGlobalContext();
@@ -15,7 +15,7 @@ const Welcome = () => {
 
   return (
     <SafeAreaView className="bg-primary h-full">
-      <Loader isLoading={loading} />
+      <Loader isLoading={loading} /> 
 
       <ScrollView
         contentContainerStyle={{
@@ -37,7 +37,7 @@ const Welcome = () => {
 
           <View className="relative mt-5">
             <Text className="text-3xl text-white font-bold text-center">
-              Discover Endless{"\n"}
+              Discover Endless{"n"}
               Possibilities with{" "}
               <Text className="text-secondary-200">Aora</Text>
             </Text>

@@ -16,4 +16,4 @@ const CustomButton = ({title, handlePress, containerStyles, textStyles, isLoadin
   )
 }
 
-export default CustomButton
+export default CustomButton;
