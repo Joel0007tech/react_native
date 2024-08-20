@@ -1,4 +1,4 @@
-import { Client, Account, ID, Avatars, Databases, Query} from 'react-native-appwrite';
+import { Client, Account, ID, Avatars, Databases, Query } from 'react-native-appwrite';
 import SignIn from '../app/(auth)/sign-in';
 
 export const config = {

@@ -4,18 +4,17 @@ import { View, Text, Image, ScrollView } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import { images } from "../constants";
-import { useGlobalContext } from "./context/GlobalProider";
-import Loader from "../components/Loader";
-import CustomButton from ".././components/CustomButton"
+import CustomButton from "../components/CustomButton"
+import { useGlobalContext } from "../context/GlobalProvider";
 
-const Welcome = () => {
-  const { loading, isLogged } = useGlobalContext();
+export default function App() {
+  const {isLoading, isLoggedIn} = useGlobalContext();
 
-  if (!loading && isLogged) return <Redirect href="/home" />;
+  if (!isLoading && isLoggedIn) return <Redirect href="/home" />
 
   return (
+  
     <SafeAreaView className="bg-primary h-full">
-      <Loader isLoading={loading} /> 
 
       <ScrollView
         contentContainerStyle={{
@@ -37,7 +36,7 @@ const Welcome = () => {
 
           <View className="relative mt-5">
             <Text className="text-3xl text-white font-bold text-center">
-              Discover Endless{"n"}
+              Discover Endless{"\n"}
               Possibilities with{" "}
               <Text className="text-secondary-200">Aora</Text>
             </Text>
@@ -64,7 +63,7 @@ const Welcome = () => {
 
       <StatusBar backgroundColor="#161622" style="light" />
     </SafeAreaView>
+  
   );
 };
 
-export default Welcome;
