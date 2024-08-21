@@ -59,6 +59,47 @@ try {
 }
 }
 
+export async function getUserPosts(userId) {
+    try {
+      const posts = await databases.listDocuments(
+        appwriteConfig.databaseId,
+        appwriteConfig.videoCollectionId,
+        [Query.equal("creator", userId)]
+      );
+  
+      return posts.documents;
+    } catch (error) {
+      throw new Error(error);
+    }
+  }
+  
+export async function getAllPosts() {
+    try {
+      const posts = await databases.listDocuments(
+        appwriteConfig.databaseId,
+        appwriteConfig.videoCollectionId
+      );
+  
+      return posts.documents;
+    } catch (error) {
+      throw new Error(error);
+    }
+  }
+
+  export async function getLatestPosts() {
+    try {
+      const posts = await databases.listDocuments(
+        appwriteConfig.databaseId,
+        appwriteConfig.videoCollectionId,
+        [Query.orderDesc("$createdAt"), Query.limit(7)]
+      );
+  
+      return posts.documents;
+    } catch (error) {
+      throw new Error(error);
+    }
+  }
+
 export const signIn = async(email, password) => {
     try {
        const session = await account.createEmailPasswordSession(email, password)
