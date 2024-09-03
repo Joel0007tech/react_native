@@ -11,6 +11,16 @@ export const config = {
     storageId:'66b9b1fe002877189850 '
 }
 
+const {
+  endpoint,
+  platform,
+  projectId,
+  databaseId,
+  userCollectionId,
+  videoCollectionId,
+  storageId
+} = config;
+
 
 // Init your React Native SDK
 const client = new Client();
@@ -59,11 +69,12 @@ try {
 }
 }
 
+
 export async function getUserPosts(userId) {
     try {
       const posts = await databases.listDocuments(
-        appwriteConfig.databaseId,
-        appwriteConfig.videoCollectionId,
+        config.databaseId,
+        config.videoCollectionId,
         [Query.equal("creator", userId)]
       );
   
@@ -76,8 +87,8 @@ export async function getUserPosts(userId) {
 export async function getAllPosts() {
     try {
       const posts = await databases.listDocuments(
-        appwriteConfig.databaseId,
-        appwriteConfig.videoCollectionId
+        databaseId,
+        videoCollectionId
       );
   
       return posts.documents;
@@ -89,8 +100,8 @@ export async function getAllPosts() {
   export async function getLatestPosts() {
     try {
       const posts = await databases.listDocuments(
-        appwriteConfig.databaseId,
-        appwriteConfig.videoCollectionId,
+        databaseId,
+        videoCollectionId,
         [Query.orderDesc("$createdAt"), Query.limit(7)]
       );
   
@@ -126,8 +137,8 @@ export async function signOut() {
         if (!currentAccount) throw Error;
 
         const currentUser = await databases.listDocuments(
-            config.databaseId,
-            config.userCollectionId
+            databaseId,
+            userCollectionId
             [Query.equal('accountId', currentAccount.$id)]
         )
          

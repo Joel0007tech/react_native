@@ -1,10 +1,10 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { ResizeMode, Video } from "expo-av";
 import { View, Text, TouchableOpacity, Image } from "react-native";
 
 import { icons } from "../constants";
 
-const VideoCard = ({ title, creator, avatar, thumbnail, video }) => {
+const VideoCard = ({ title, thumbnail, video, avatar, username}) => {
   const [play, setPlay] = useState(false);
 
   return (
@@ -30,7 +30,7 @@ const VideoCard = ({ title, creator, avatar, thumbnail, video }) => {
               className="text-xs text-gray-100 font-pregular"
               numberOfLines={1}
             >
-              {creator}
+              {username}
             </Text>
           </View>
         </View>

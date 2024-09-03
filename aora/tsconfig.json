@@ -13,5 +13,5 @@
     "**/*.tsx",
     ".expo/types/**/*.ts",
     "expo-env.d.ts"
-, "app/search/[query].jsx", "app/index.jsx", "app/(tabs)/_layout.jsx", "constants/icons.js", "app/(auth)/sign-up.jsx", "app/(auth)/_layout.jsx", "app/(auth)/sign-in.jsx", "components/FormField.jsx", "app/context/GlobalProvider.js", "components/Loader.jsx", "app/(tabs)/home.jsx", "components/ExternalLink.jsx", "app/(tabs)/bookmarks.jsx"  ]
+, "app/search/[query].jsx", "app/index.jsx", "app/(tabs)/_layout.jsx", "constants/icons.js", "app/(auth)/sign-up.jsx", "app/(auth)/_layout.jsx", "app/(auth)/sign-in.jsx", "components/FormField.jsx", "app/context/GlobalProvider.js", "components/Loader.jsx", "app/(tabs)/home.jsx", "components/ExternalLink.jsx", "app/(tabs)/bookmarks.jsx", "app/(tabs)/profile.jsx", "app/(tabs)/create.jsx"  ]
 }
